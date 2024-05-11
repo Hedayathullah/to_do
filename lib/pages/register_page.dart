@@ -77,11 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
       backgroundColor: Colors.grey,
-=======
-      backgroundColor: Colors.blueGrey[50], // Light grey background color
->>>>>>> fa570f4 (first_commit)
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -91,15 +87,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 //Hello again?
                 Text(
                   'Hello There',
-<<<<<<< HEAD
                   style: GoogleFonts.bebasNeue(
                     fontSize: 52,
-=======
-                  style: TextStyle(
-                    fontSize: 36, // Reduced font size
-                    fontWeight: FontWeight.bold, // Bold font weight
-                    color: Colors.blueGrey[900], // Dark grey text color
->>>>>>> fa570f4 (first_commit)
                   ),
                 ),
                 SizedBox(
@@ -109,10 +98,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   "Register Below with your details",
                   style: TextStyle(
                     fontSize: 20,
-<<<<<<< HEAD
-=======
-                    color: Colors.blueGrey[900], // Dark grey text color
->>>>>>> fa570f4 (first_commit)
                   ),
                 ),
                 SizedBox(
@@ -125,7 +110,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextField(
                     controller: _firstNameController,
                     decoration: InputDecoration(
-<<<<<<< HEAD
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                             borderRadius: BorderRadius.circular(12)),
@@ -136,27 +120,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         hintText: 'First Name',
                         fillColor: Colors.grey[200],
                         filled: true),
-=======
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: const Color.fromARGB(
-                                255, 38, 50, 56)), // Dark grey border color
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors
-                                .deepPurple), // Deep purple border color when focused
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      hintText: 'First Name',
-                      hintStyle: TextStyle(
-                          color: Colors
-                              .blueGrey[900]), // Dark grey hint text color
-                      fillColor: Colors.white, // White fill color
-                      filled: true,
-                    ),
->>>>>>> fa570f4 (first_commit)
                   ),
                 ),
                 SizedBox(height: 10),
@@ -167,7 +130,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextField(
                     controller: _lastNameController,
                     decoration: InputDecoration(
-<<<<<<< HEAD
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                             borderRadius: BorderRadius.circular(12)),
@@ -178,27 +140,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         hintText: 'Last Name',
                         fillColor: Colors.grey[200],
                         filled: true),
-=======
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: const Color.fromARGB(
-                                255, 38, 50, 56)), // Dark grey border color
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors
-                                .deepPurple), // Deep purple border color when focused
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      hintText: 'Last Name',
-                      hintStyle: TextStyle(
-                          color: Colors
-                              .blueGrey[900]), // Dark grey hint text color
-                      fillColor: Colors.white, // White fill color
-                      filled: true,
-                    ),
->>>>>>> fa570f4 (first_commit)
                   ),
                 ),
                 SizedBox(height: 10),
@@ -209,7 +150,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextField(
                     controller: _ageController,
                     decoration: InputDecoration(
-<<<<<<< HEAD
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                             borderRadius: BorderRadius.circular(12)),
@@ -220,27 +160,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         hintText: 'Age',
                         fillColor: Colors.grey[200],
                         filled: true),
-=======
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: const Color.fromARGB(
-                                255, 38, 50, 56)), // Dark grey border color
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors
-                                .deepPurple), // Deep purple border color when focused
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      hintText: 'Age',
-                      hintStyle: TextStyle(
-                          color: Colors
-                              .blueGrey[900]), // Dark grey hint text color
-                      fillColor: Colors.white, // White fill color
-                      filled: true,
-                    ),
->>>>>>> fa570f4 (first_commit)
                   ),
                 ),
                 SizedBox(height: 10),
@@ -251,7 +170,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextField(
                     controller: _cityController,
                     decoration: InputDecoration(
-<<<<<<< HEAD
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                             borderRadius: BorderRadius.circular(12)),
@@ -262,27 +180,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         hintText: 'City',
                         fillColor: Colors.grey[200],
                         filled: true),
-=======
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: const Color.fromARGB(
-                                255, 38, 50, 56)), // Dark grey border color
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors
-                                .deepPurple), // Deep purple border color when focused
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      hintText: 'City',
-                      hintStyle: TextStyle(
-                          color: Colors
-                              .blueGrey[900]), // Dark grey hint text color
-                      fillColor: Colors.white, // White fill color
-                      filled: true,
-                    ),
->>>>>>> fa570f4 (first_commit)
                   ),
                 ),
                 SizedBox(height: 10),
@@ -293,7 +190,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextField(
                     controller: _emailController,
                     decoration: InputDecoration(
-<<<<<<< HEAD
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                             borderRadius: BorderRadius.circular(12)),
@@ -304,27 +200,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         hintText: 'Email',
                         fillColor: Colors.grey[200],
                         filled: true),
-=======
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: const Color.fromARGB(
-                                255, 38, 50, 56)), // Dark grey border color
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors
-                                .deepPurple), // Deep purple border color when focused
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      hintText: 'Email',
-                      hintStyle: TextStyle(
-                          color: Colors
-                              .blueGrey[900]), // Dark grey hint text color
-                      fillColor: Colors.white, // White fill color
-                      filled: true,
-                    ),
->>>>>>> fa570f4 (first_commit)
                   ),
                 ),
                 SizedBox(height: 10),
@@ -336,7 +211,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     obscureText: true,
                     controller: _passwordController,
                     decoration: InputDecoration(
-<<<<<<< HEAD
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                             borderRadius: BorderRadius.circular(12)),
@@ -347,27 +221,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         hintText: 'Password',
                         fillColor: Colors.grey[200],
                         filled: true),
-=======
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: const Color.fromARGB(
-                                255, 38, 50, 56)), // Dark grey border color
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors
-                                .deepPurple), // Deep purple border color when focused
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      hintText: 'Password',
-                      hintStyle: TextStyle(
-                          color: Colors
-                              .blueGrey[900]), // Dark grey hint text color
-                      fillColor: Colors.white, // White fill color
-                      filled: true,
-                    ),
->>>>>>> fa570f4 (first_commit)
                   ),
                 ),
 
@@ -382,7 +235,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     obscureText: true,
                     controller: _confirmpasswordController,
                     decoration: InputDecoration(
-<<<<<<< HEAD
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                             borderRadius: BorderRadius.circular(12)),
@@ -393,27 +245,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         hintText: 'Confirm Password',
                         fillColor: Colors.grey[200],
                         filled: true),
-=======
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: const Color.fromARGB(
-                                255, 38, 50, 56)), // Dark grey border color
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colors
-                                .deepPurple), // Deep purple border color when focused
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      hintText: 'Confirm Password',
-                      hintStyle: TextStyle(
-                          color: Colors
-                              .blueGrey[900]), // Dark grey hint text color
-                      fillColor: Colors.white, // White fill color
-                      filled: true,
-                    ),
->>>>>>> fa570f4 (first_commit)
                   ),
                 ),
 
@@ -429,11 +260,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: Container(
                       padding: EdgeInsets.all(25),
                       decoration: BoxDecoration(
-<<<<<<< HEAD
                         color: Colors.deepPurpleAccent,
-=======
-                        color: Color.fromARGB(255, 31, 138, 191),
->>>>>>> fa570f4 (first_commit)
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Center(
@@ -468,12 +295,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: Text(
                         'Login Now',
                         style: TextStyle(
-<<<<<<< HEAD
                           color: Colors.blue,
-=======
-                          color: Color.fromARGB(
-                              255, 31, 138, 191), // Dark grey text color
->>>>>>> fa570f4 (first_commit)
                           fontWeight: FontWeight.bold,
                         ),
                       ),
