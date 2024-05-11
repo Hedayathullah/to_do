@@ -148,7 +148,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget builde(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       body: SfCartesianChart(),
