@@ -104,7 +104,8 @@ add_custom_command(
       windows-x64 $<CONFIG>
 =======
       ${FLUTTER_TARGET_PLATFORM} $<CONFIG>
->>>>>>> fa570f4 (first_commit)
+>>>>>>> fa570f4 (first_commit
+  VERBATIM)
   VERBATIM
 )
 add_custom_target(flutter_assemble DEPENDS

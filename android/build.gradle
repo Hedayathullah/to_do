@@ -1,9 +1,5 @@
 buildscript {
-<<<<<<< HEAD
-    ext.kotlin_version = '1.6.10'
-=======
-    ext.kotlin_version = '1.9.22'
->>>>>>> fa570f4 (first_commit)
+    ext.kotlin_version = '1.9.23'
     repositories {
         google()
         mavenCentral()
@@ -31,10 +27,6 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
-<<<<<<< HEAD
-task clean(type: Delete) {
-=======
 tasks.register("clean", Delete) {
->>>>>>> fa570f4 (first_commit)
     delete rootProject.buildDir
 }

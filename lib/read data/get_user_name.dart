@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class GetUserName extends StatelessWidget {
   final String documentId;
 
-  GetUserName({required this.documentId});
+  const GetUserName({super.key, required this.documentId});
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +17,9 @@ class GetUserName extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done) {
             Map<String, dynamic> data =
                 snapshot.data!.data() as Map<String, dynamic>;
-            return Text('${data['first name']}' +
-                '' +
-                '${data['last name']},' +
-                '' +
-                '${data['age']}' +
-                '' +
-                '${data['city']}');
+            return Text('${data['first name']}${data['last name']},${data['age']}${data['city']}');
           }
-          return Text('loading...');
+          return const Text('loading...');
         }));
   }
 }

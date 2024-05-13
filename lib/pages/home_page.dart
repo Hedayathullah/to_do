@@ -1,9 +1,25 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:loginui/read%20data/get_user_name.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'To-Do List',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    );
+  }
+}
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,39 +31,23 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
 
-  // //document IDs
-  // List<String> docIDs = [];
-
-  // //get docIDs
-  // Future getDocId() async {
-  //   await FirebaseFirestore.instance
-  //       .collection('users')
-  //       .orderBy('age', descending: false)
-  //       .get()
-  //       .then(
-  //         (snapshot) => snapshot.docs.forEach(
-  //           (document) {
-  //             print(document.reference);
-  //             docIDs.add(document.reference.id);
-  //           },
-  //         ),
-  //       );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(235, 60, 97, 222),
+        backgroundColor: Colors.green.shade700,
         toolbarHeight: 70,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
+            Text(
               'User Profile',
-              style: TextStyle(fontSize: 30),
+              style: TextStyle(
+                fontSize: 30,
+                color: Theme.of(context).colorScheme.primary,
+              ),
             ),
-            Container(
+            SizedBox(
               height: 40,
               width: 40,
               child: ClipRRect(
@@ -65,69 +65,33 @@ class _HomePageState extends State<HomePage> {
             child: Icon(
               Icons.logout,
               size: 28,
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
         ],
       ),
-      body: Container(
-        padding: const EdgeInsets.all(20),
+      body: ToDoListScreen(),
+      bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color.fromARGB(255, 142, 195, 222),
-              Color.fromARGB(255, 98, 140, 213),
-              Color.fromARGB(255, 26, 182, 255),
-              Color.fromARGB(255, 71, 136, 167),
-            ],
+          color: Colors.green.shade700,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset(
-              'assets/walkathon.png',
-              height: 500,
-              width: 500,
-            )
-            // Expanded(
-            //   child: FutureBuilder(
-            //     future: getDocId(),
-            //     builder: (context, snapshot) {
-            //       return ListView.builder(
-            //         itemCount: docIDs.length,
-            //         itemBuilder: (context, index) {
-            //           return ListTile(
-            //             title: GetUserName(documentId: docIDs[index]),
-            //             tileColor: Colors.grey[200],
-            //           );
-            //         },
-            //       );
-            //     },
-            //   ),
-            // ),
-          ],
-        ),
-      ),
-
-      //Navigation Bar
-      bottomNavigationBar: Container(
-        color: Colors.black,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
           child: GNav(
-            backgroundColor: Colors.black,
-            color: Color.fromARGB(255, 255, 255, 255),
-            activeColor: Color.fromARGB(255, 113, 207, 250),
-            tabBackgroundColor: Colors.grey.shade600,
+            backgroundColor: Colors.green.shade700,
+            color: Theme.of(context).colorScheme.primary,
+            activeColor: Colors.white,
+            tabBackgroundColor: Colors.green.shade900,
             gap: 5,
             onTabChange: (index) {
               print(index);
             },
-            padding: EdgeInsets.all(16),
-            tabs: [
+            padding: const EdgeInsets.all(16),
+            tabs: const [
               GButton(
                 icon: Icons.home,
                 text: 'Home',
@@ -146,12 +110,127 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+class ToDoListScreen extends StatefulWidget {
+  @override
+  _ToDoListScreenState createState() => _ToDoListScreenState();
+}
+
+class _ToDoListScreenState extends State<ToDoListScreen> {
+  List<String> _tasks = [];
+  List<bool> _taskCompleted = [];
+
+  void _addTask(String task) {
+    setState(() {
+      _tasks.add(task);
+      _taskCompleted.add(false); // Initialize task completion status
+    });
+  }
+
+  void _removeTask(int index) {
+    setState(() {
+      _tasks.removeAt(index);
+      _taskCompleted.removeAt(index);
+    });
+  }
+
+  void _toggleTaskCompletion(int index) {
+    setState(() {
+      _taskCompleted[index] = !_taskCompleted[index];
+    });
+  }
 
   @override
-  Widget builde(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      body: SfCartesianChart(),
-    ));
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: ListView.builder(
+              itemCount: _tasks.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(
+                    '${index + 1}. ${_tasks[index]}',
+                    style: _taskCompleted[index]
+                        ? TextStyle(
+                            decoration: TextDecoration.lineThrough,
+                          )
+                        : null,
+                  ),
+                  trailing: IconButton(
+                    icon: Icon(
+                      Icons.delete,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      _removeTask(index);
+                    },
+                  ),
+                  onTap: () {
+                    _toggleTaskCompletion(index);
+                  },
+                );
+              },
+            ),
+          ),
+          FloatingActionButton(
+            onPressed: () async {
+              final newTask = await showDialog<String>(
+                context: context,
+                builder: (context) {
+                  String taskText = '';
+
+                  return AlertDialog(
+                    title: Text('Add Task'),
+                    content: TextField(
+                      onChanged: (value) {
+                        taskText = value;
+                      },
+                    ),
+                    actions: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors
+                              .transparent, // Set background color to green
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pop(taskText);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.black38,
+                            elevation: 30,
+                          ),
+                          child: Text(
+                            'Add',
+                            style: TextStyle(
+                                color: Theme.of(context).colorScheme.surface),
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              );
+
+              if (newTask != null && newTask.isNotEmpty) {
+                _addTask(newTask);
+              }
+            },
+            tooltip: 'Add Task',
+            child: Icon(
+              Icons.add,
+              color: Theme.of(context).colorScheme.surface,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

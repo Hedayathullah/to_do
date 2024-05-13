@@ -24,7 +24,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(
+          return const AlertDialog(
             content: Text('Password reset Link sent: Please Check Email'),
           );
         },
@@ -52,15 +52,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25),
             child: Text(
               'Enter Your Email and we will send you a Password reset link.',
               textAlign: TextAlign.center,
             ),
           ),
 
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
 
           //email textfield
           Padding(
@@ -69,21 +69,22 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               controller: _emailController,
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Colors.white),
                       borderRadius: BorderRadius.circular(12)),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.deepPurple),
+                    borderSide: const BorderSide(color: Colors.deepPurple),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   hintText: 'Email',
-                  fillColor: Colors.grey[200],
+                  hintStyle: TextStyle(color: Colors.black87),
+                  fillColor: Colors.white,
                   filled: true),
             ),
           ),
           MaterialButton(
             onPressed: passwordReset,
-            child: Text('Reset Password'),
             color: Colors.deepPurple[200],
+            child: const Text('Reset Password'),
           ),
         ],
       ),

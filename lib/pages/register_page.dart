@@ -30,8 +30,6 @@ class _RegisterPageState extends State<RegisterPage> {
     _passwordController.dispose();
     _firstNameController.dispose();
     _lastNameController.dispose();
-    _ageController.dispose();
-    _cityController.dispose();
     super.dispose();
   }
 
@@ -60,8 +58,6 @@ class _RegisterPageState extends State<RegisterPage> {
       'first name': firstName,
       'last name': lastName,
       'email': email,
-      'age': age,
-      'city': city,
     });
   }
 
@@ -77,7 +73,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -87,20 +83,17 @@ class _RegisterPageState extends State<RegisterPage> {
                 //Hello again?
                 Text(
                   'Hello There',
-                  style: GoogleFonts.bebasNeue(
-                    fontSize: 52,
-                  ),
+                  style:
+                      GoogleFonts.bebasNeue(fontSize: 52, color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   "Register Below with your details",
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
+                  style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
 
@@ -110,19 +103,25 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextField(
                     controller: _firstNameController,
                     decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(12)),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
-                          borderRadius: BorderRadius.circular(12),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 78, 77, 81),
                         ),
-                        hintText: 'First Name',
-                        fillColor: Colors.grey[200],
-                        filled: true),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      hintText: 'First Name',
+                      hintStyle: TextStyle(color: Colors.black87),
+                      fillColor: Color.fromARGB(255, 230, 230, 233),
+                      filled: true,
+                    ),
+                    style: TextStyle(
+                        color: Colors.black), // Text color of input text
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
 
                 //last name textfield
                 Padding(
@@ -131,58 +130,22 @@ class _RegisterPageState extends State<RegisterPage> {
                     controller: _lastNameController,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 78, 77, 81)),
                             borderRadius: BorderRadius.circular(12)),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 78, 77, 81)),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         hintText: 'Last Name',
-                        fillColor: Colors.grey[200],
+                        hintStyle: TextStyle(color: Colors.black87),
+                        fillColor: Color.fromARGB(255, 230, 230, 233),
                         filled: true),
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
-                SizedBox(height: 10),
-
-                //Age textfield
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: TextField(
-                    controller: _ageController,
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(12)),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        hintText: 'Age',
-                        fillColor: Colors.grey[200],
-                        filled: true),
-                  ),
-                ),
-                SizedBox(height: 10),
-
-                //City textfield
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: TextField(
-                    controller: _cityController,
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(12)),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        hintText: 'City',
-                        fillColor: Colors.grey[200],
-                        filled: true),
-                  ),
-                ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
 
                 //email textfield
                 Padding(
@@ -191,18 +154,22 @@ class _RegisterPageState extends State<RegisterPage> {
                     controller: _emailController,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 78, 77, 81)),
                             borderRadius: BorderRadius.circular(12)),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 78, 77, 81)),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         hintText: 'Email',
-                        fillColor: Colors.grey[200],
+                        hintStyle: TextStyle(color: Colors.black87),
+                        fillColor: Color.fromARGB(255, 230, 230, 233),
                         filled: true),
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
 
                 // password textfield
                 Padding(
@@ -212,19 +179,21 @@ class _RegisterPageState extends State<RegisterPage> {
                     controller: _passwordController,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 78, 77, 81)),
                             borderRadius: BorderRadius.circular(12)),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         hintText: 'Password',
-                        fillColor: Colors.grey[200],
+                        hintStyle: TextStyle(color: Colors.black87),
+                        fillColor: Color.fromARGB(255, 230, 230, 233),
                         filled: true),
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
 
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
 
@@ -236,66 +205,70 @@ class _RegisterPageState extends State<RegisterPage> {
                     controller: _confirmpasswordController,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 84, 87, 92)),
                             borderRadius: BorderRadius.circular(12)),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         hintText: 'Confirm Password',
-                        fillColor: Colors.grey[200],
+                        hintStyle: TextStyle(color: Colors.black87),
+                        fillColor: Color.fromARGB(255, 230, 230, 233),
                         filled: true),
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
 
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
 
                 //sign up button
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: GestureDetector(
-                    onTap: signUp,
-                    child: Container(
-                      padding: EdgeInsets.all(25),
-                      decoration: BoxDecoration(
-                        color: Colors.deepPurpleAccent,
-                        borderRadius: BorderRadius.circular(12),
+                  child: ElevatedButton(
+                    onPressed: signUp,
+                    style: ElevatedButton.styleFrom(
+                      primary: Theme.of(context).colorScheme.secondary,
+                      minimumSize:
+                          Size(double.infinity, 50), // Set minimum button size
+                      padding: EdgeInsets.symmetric(
+                          vertical: 15), // Adjust vertical padding
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
                       ),
-                      child: Center(
-                        child: Text(
-                          'Sign Up',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
                         ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 25,
+                const SizedBox(
+                  height: 20,
                 ),
 
                 //register now
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'I am a Member! ',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                          fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                     GestureDetector(
                       onTap: widget.showLoginPage,
                       child: Text(
                         'Login Now',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Theme.of(context).colorScheme.secondary,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
